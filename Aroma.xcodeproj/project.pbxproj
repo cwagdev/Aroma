@@ -14,13 +14,16 @@
 		83CD7B8B17ADD49000C5E680 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD7B8A17ADD49000C5E680 /* main.m */; };
 		83CD7B8F17ADD49000C5E680 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD7B8E17ADD49000C5E680 /* AppDelegate.m */; };
 		83CD7B9217ADD49000C5E680 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CD7B9017ADD49000C5E680 /* Main.storyboard */; };
-		83CD7B9517ADD49000C5E680 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD7B9417ADD49000C5E680 /* ViewController.m */; };
+		83CD7B9517ADD49000C5E680 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD7B9417ADD49000C5E680 /* MainViewController.m */; };
 		83CD7B9717ADD49000C5E680 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83CD7B9617ADD49000C5E680 /* Images.xcassets */; };
 		83CD7B9E17ADD49000C5E680 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83CD7B9D17ADD49000C5E680 /* XCTest.framework */; };
 		83CD7B9F17ADD49000C5E680 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83CD7B7E17ADD49000C5E680 /* Foundation.framework */; };
 		83CD7BA017ADD49000C5E680 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83CD7B8217ADD49000C5E680 /* UIKit.framework */; };
 		83CD7BA817ADD49000C5E680 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83CD7BA617ADD49000C5E680 /* InfoPlist.strings */; };
 		83CD7BAA17ADD49000C5E680 /* AromaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD7BA917ADD49000C5E680 /* AromaTests.m */; };
+		83CD7BB817ADE07600C5E680 /* RestaurantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD7BB717ADE07600C5E680 /* RestaurantDetailViewController.m */; };
+		83CD7BBB17ADE57E00C5E680 /* RestaurantDetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD7BBA17ADE57E00C5E680 /* RestaurantDetailService.m */; };
+		83CD7BBE17ADE5D200C5E680 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD7BBD17ADE5D200C5E680 /* Restaurant.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +48,20 @@
 		83CD7B8D17ADD49000C5E680 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		83CD7B8E17ADD49000C5E680 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		83CD7B9117ADD49000C5E680 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		83CD7B9317ADD49000C5E680 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		83CD7B9417ADD49000C5E680 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		83CD7B9317ADD49000C5E680 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		83CD7B9417ADD49000C5E680 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		83CD7B9617ADD49000C5E680 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		83CD7B9C17ADD49000C5E680 /* AromaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AromaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CD7B9D17ADD49000C5E680 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		83CD7BA517ADD49000C5E680 /* AromaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AromaTests-Info.plist"; sourceTree = "<group>"; };
 		83CD7BA717ADD49000C5E680 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83CD7BA917ADD49000C5E680 /* AromaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AromaTests.m; sourceTree = "<group>"; };
+		83CD7BB617ADE07600C5E680 /* RestaurantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailViewController.h; sourceTree = "<group>"; };
+		83CD7BB717ADE07600C5E680 /* RestaurantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailViewController.m; sourceTree = "<group>"; };
+		83CD7BB917ADE57E00C5E680 /* RestaurantDetailService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailService.h; sourceTree = "<group>"; };
+		83CD7BBA17ADE57E00C5E680 /* RestaurantDetailService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailService.m; sourceTree = "<group>"; };
+		83CD7BBC17ADE5D200C5E680 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
+		83CD7BBD17ADE5D200C5E680 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +124,16 @@
 				83CD7B8D17ADD49000C5E680 /* AppDelegate.h */,
 				83CD7B8E17ADD49000C5E680 /* AppDelegate.m */,
 				83CD7B9017ADD49000C5E680 /* Main.storyboard */,
-				83CD7B9317ADD49000C5E680 /* ViewController.h */,
-				83CD7B9417ADD49000C5E680 /* ViewController.m */,
+				83CD7B9317ADD49000C5E680 /* MainViewController.h */,
+				83CD7B9417ADD49000C5E680 /* MainViewController.m */,
 				83CD7B9617ADD49000C5E680 /* Images.xcassets */,
 				83CD7B8517ADD49000C5E680 /* Supporting Files */,
+				83CD7BB617ADE07600C5E680 /* RestaurantDetailViewController.h */,
+				83CD7BB717ADE07600C5E680 /* RestaurantDetailViewController.m */,
+				83CD7BB917ADE57E00C5E680 /* RestaurantDetailService.h */,
+				83CD7BBA17ADE57E00C5E680 /* RestaurantDetailService.m */,
+				83CD7BBC17ADE5D200C5E680 /* Restaurant.h */,
+				83CD7BBD17ADE5D200C5E680 /* Restaurant.m */,
 			);
 			path = Aroma;
 			sourceTree = "<group>";
@@ -199,6 +214,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Razeware;
 				TargetAttributes = {
+					83CD7B7A17ADD49000C5E680 = {
+						DevelopmentTeam = X28LAA5D4H;
+					};
 					83CD7B9B17ADD49000C5E680 = {
 						TestTargetID = 83CD7B7A17ADD49000C5E680;
 					};
@@ -249,8 +267,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83CD7B9517ADD49000C5E680 /* ViewController.m in Sources */,
+				83CD7BBB17ADE57E00C5E680 /* RestaurantDetailService.m in Sources */,
+				83CD7BB817ADE07600C5E680 /* RestaurantDetailViewController.m in Sources */,
+				83CD7B9517ADD49000C5E680 /* MainViewController.m in Sources */,
 				83CD7B8F17ADD49000C5E680 /* AppDelegate.m in Sources */,
+				83CD7BBE17ADE5D200C5E680 /* Restaurant.m in Sources */,
 				83CD7B8B17ADD49000C5E680 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Aroma/Aroma-Prefix.pch";
 				INFOPLIST_FILE = "Aroma/Aroma-Info.plist";
@@ -387,6 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Aroma/Aroma-Prefix.pch";
 				INFOPLIST_FILE = "Aroma/Aroma-Info.plist";
