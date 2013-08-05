@@ -7,12 +7,63 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+#import "RestaurantDetailService.h"
+#import "Restaurant.h"
 
-@implementation AppDelegate
+#import "RestaurantDetailViewController.h"
+
+#import "BeaconMonitoringService.h"
+
+@implementation AppDelegate {
+    CLLocationManager *_locationManager;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
+    NSLog(@"Determined state for region: %@", region);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    NSLog(@"Did enter region: %@", region);
+    if ([region isKindOfClass:[CLBeaconRegion class]]) {
+        CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
+        Restaurant *restaurant = [[RestaurantDetailService sharedService] restaurantWithUUID:beaconRegion.proximityUUID];
+        if (restaurant) {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.userInfo = @{@"uuid": restaurant.uuid.UUIDString};
+            notification.alertBody = [NSString stringWithFormat:@"Smell that? Looks like you're near %@!", restaurant.name];
+            notification.soundName = @"Default";
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        }
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    NSLog(@"Did exit region: %@", region);
+    if ([region isKindOfClass:[CLBeaconRegion class]]) {
+        CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
+        Restaurant *restaurant = [[RestaurantDetailService sharedService] restaurantWithUUID:beaconRegion.proximityUUID];
+        if (restaurant) {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = [NSString stringWithFormat:@"We hope you enjoyed the smells and more of %@. See you next time!", restaurant.name];
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        }
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
+    
+    [[BeaconMonitoringService sharedService] stopMonitoringAllRegions];
+    NSArray *restaurants = [[RestaurantDetailService sharedService] restaurants];
+    for (Restaurant *restaurant in restaurants) {
+        [[BeaconMonitoringService sharedService] startMonitoringBeaconWithUUID:restaurant.uuid major:0 minor:0 identifier:restaurant.name onEntry:YES onExit:YES];
+    }
+
     return YES;
 }
 							
@@ -42,5 +93,20 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:notification.userInfo[@"uuid"]];
+    Restaurant *restaurant = [[RestaurantDetailService sharedService] restaurantWithUUID:uuid];
+    if (restaurant) {
+        RestaurantDetailViewController *restaurantDetailViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailViewController"];
+        restaurantDetailViewController.restaurant = restaurant;
+
+        UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
+        MainViewController *mainViewController = (MainViewController *)navController.topViewController;
+        [mainViewController scrollToRestaurant:restaurant];
+    }
+}
+
 
 @end

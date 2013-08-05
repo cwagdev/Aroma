@@ -45,6 +45,15 @@
     }];
 }
 
+- (void)scrollToRestaurant:(Restaurant *)restaurant {
+    NSInteger index = [_restaurants indexOfObject:restaurant];
+    [_scrollView scrollRectToVisible:CGRectMake(self.view.frame.size.width * index,
+                                               0,
+                                               self.view.frame.size.width,
+                                               self.view.frame.size.height)
+                            animated:YES];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -53,10 +62,18 @@
 
 #pragma mark - Scroll view delegate methods
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+- (void)updateTitle:(UIScrollView *)scrollView {
     NSInteger currentResaurantIndex = floor(scrollView.contentOffset.x / self.view.frame.size.width);
     Restaurant *currentRestaurant = [_restaurants objectAtIndex:currentResaurantIndex];
     self.navigationItem.title = currentRestaurant.name;
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    [self updateTitle:scrollView];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self updateTitle:scrollView];
 }
 
 

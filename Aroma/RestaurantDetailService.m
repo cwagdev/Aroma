@@ -35,17 +35,17 @@
     rays.motdBody = @"Welcome to Ray's Wraps! Here you will find the most gangsta wrappers dropping flavor bombs on your tongue.";
     rays.image = [UIImage imageNamed:@"Wrap"];
     
-    NSUUID *chrisUUID = [[NSUUID alloc] initWithUUIDString:@"2B144D35-5BA6-4010-B276-FC4D4845B292"];
-    Restaurant *chris = [[Restaurant alloc] initWithUUID:chrisUUID name:@"Chris's Calzones"];
-    chris.motdHeader = @"Pockets of Heaven";
-    chris.motdBody = @"These calzones are so packed full of fresh and delicious ingredients, you will swear they came strait from the calzone gods.";
-    chris.image = [UIImage imageNamed:@"Calzone"];
-    
     NSUUID *jamiesUUID = [[NSUUID alloc] initWithUUIDString:@"7B377E4A-1641-4765-95E9-174CD05B6C79"];
     Restaurant *jamies = [[Restaurant alloc] initWithUUID:jamiesUUID name:@"Jamie's Jambalaya"];
     jamies.motdHeader = @"Everything Under The Sun";
     jamies.motdBody = @"And as hot as the sun, our jambalya will kick you so hard in the tastebuds you won't know what hit you.";
     jamies.image = [UIImage imageNamed:@"Jambalya"];
+    
+    NSUUID *chrisUUID = [[NSUUID alloc] initWithUUIDString:@"2B144D35-5BA6-4010-B276-FC4D4845B292"];
+    Restaurant *chris = [[Restaurant alloc] initWithUUID:chrisUUID name:@"Chris's Calzones"];
+    chris.motdHeader = @"Pockets of Heaven";
+    chris.motdBody = @"These calzones are so packed full of fresh and delicious ingredients, you will swear they came strait from the calzone gods.";
+    chris.image = [UIImage imageNamed:@"Calzone"];
     
     _restaurants = @[rays, chris, jamies];
     

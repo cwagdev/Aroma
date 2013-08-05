@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83BFBFDF17AF8B5B00741CCC /* BeaconMonitoringService.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BFBFDE17AF8B5B00741CCC /* BeaconMonitoringService.m */; };
 		83CD7B7F17ADD49000C5E680 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83CD7B7E17ADD49000C5E680 /* Foundation.framework */; };
 		83CD7B8117ADD49000C5E680 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83CD7B8017ADD49000C5E680 /* CoreGraphics.framework */; };
 		83CD7B8317ADD49000C5E680 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83CD7B8217ADD49000C5E680 /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		83BFBFDD17AF8B5B00741CCC /* BeaconMonitoringService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconMonitoringService.h; sourceTree = "<group>"; };
+		83BFBFDE17AF8B5B00741CCC /* BeaconMonitoringService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconMonitoringService.m; sourceTree = "<group>"; };
 		83CD7B7B17ADD49000C5E680 /* Aroma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aroma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CD7B7E17ADD49000C5E680 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		83CD7B8017ADD49000C5E680 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,9 +91,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83BFBFDC17AF84BB00741CCC /* iBeacon */ = {
+			isa = PBXGroup;
+			children = (
+				83BFBFDD17AF8B5B00741CCC /* BeaconMonitoringService.h */,
+				83BFBFDE17AF8B5B00741CCC /* BeaconMonitoringService.m */,
+			);
+			name = iBeacon;
+			path = Aroma/iBeacon;
+			sourceTree = "<group>";
+		};
 		83CD7B7217ADD49000C5E680 = {
 			isa = PBXGroup;
 			children = (
+				83BFBFDC17AF84BB00741CCC /* iBeacon */,
 				83CD7B8417ADD49000C5E680 /* Aroma */,
 				83CD7BA317ADD49000C5E680 /* AromaTests */,
 				83CD7B7D17ADD49000C5E680 /* Frameworks */,
@@ -216,6 +230,11 @@
 				TargetAttributes = {
 					83CD7B7A17ADD49000C5E680 = {
 						DevelopmentTeam = X28LAA5D4H;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					83CD7B9B17ADD49000C5E680 = {
 						TestTargetID = 83CD7B7A17ADD49000C5E680;
@@ -267,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83BFBFDF17AF8B5B00741CCC /* BeaconMonitoringService.m in Sources */,
 				83CD7BBB17ADE57E00C5E680 /* RestaurantDetailService.m in Sources */,
 				83CD7BB817ADE07600C5E680 /* RestaurantDetailViewController.m in Sources */,
 				83CD7B9517ADD49000C5E680 /* MainViewController.m in Sources */,
@@ -477,6 +497,7 @@
 				83CD7BAF17ADD49000C5E680 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83CD7BB017ADD49000C5E680 /* Build configuration list for PBXNativeTarget "AromaTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +506,7 @@
 				83CD7BB217ADD49000C5E680 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

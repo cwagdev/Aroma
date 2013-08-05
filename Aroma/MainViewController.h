@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Restaurant;
+
 @interface MainViewController : UIViewController
+
+- (void)scrollToRestaurant:(Restaurant *)restaurant;
 
 @end
