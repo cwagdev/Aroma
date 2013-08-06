@@ -12,5 +12,6 @@
 @interface RestaurantDetailViewController : UIViewController
 
 @property (strong, nonatomic) Restaurant *restaurant;
+@property (weak, nonatomic) UIViewController *containingViewController;
 
 @end
