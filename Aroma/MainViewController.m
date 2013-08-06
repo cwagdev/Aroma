@@ -36,6 +36,7 @@
     [_restaurants enumerateObjectsUsingBlock:^(Restaurant *restaurant, NSUInteger idx, BOOL *stop) {
         RestaurantDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailViewController"];
         detailViewController.restaurant = restaurant;
+        detailViewController.containingViewController = self;
         detailViewController.view.frame = CGRectMake(self.view.frame.size.width * idx,
                                                      0,
                                                      detailViewController.view.frame.size.width,
