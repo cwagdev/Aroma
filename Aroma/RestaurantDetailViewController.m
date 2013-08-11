@@ -10,6 +10,7 @@
 #import "Restaurant.h"
 #import "MultipeerConnectivityService.h"
 #import "ReserveTableViewController.h"
+#import "AppDelegate.h"
 
 @interface RestaurantDetailViewController () <MultipeerConnecivityServiceDelegate>
 
@@ -22,6 +23,13 @@
 
 @implementation RestaurantDetailViewController {
     BOOL _connectedToHostStand;
+    CLLocationManager *_locationManager;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"DidEnterRegion" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"DidExitRegion" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"DidDetermineRegionState" object:nil];
 }
 
 - (void)viewDidLoad
@@ -31,12 +39,52 @@
     [_imageView setImage:_restaurant.image];
     _motdLabel.text = _restaurant.motdHeader;
     _motdTextView.text = _restaurant.motdBody;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDidEnterRegionNotification:) name:@"DidEnterRegion" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDidExitRegionNotification:) name:@"DidExitRegion" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDidDetermineRegionStateNotification:) name:@"DidDetermineRegionState" object:nil];
+    
+    
+    _locationManager = [(AppDelegate *)[UIApplication sharedApplication].delegate locationManager];
+    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:_restaurant.uuid major:0 minor:0 identifier:_restaurant.name];
+    [_locationManager requestStateForRegion:region];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)handleDidDetermineRegionStateNotification:(NSNotification *)note {
+    Restaurant *r = note.userInfo[@"restaurant"];
+    if (r == _restaurant) {
+        CLRegionState state = [note.userInfo[@"state"] integerValue];
+        switch (state) {
+            case CLRegionStateInside:
+                _reserveATableButton.hidden = NO;
+                break;
+            case CLRegionStateOutside:
+                _reserveATableButton.hidden = YES;
+                break;
+            case CLRegionStateUnknown:
+                _reserveATableButton.hidden = YES;
+                break;
+        }
+    }
+}
+
+- (void)handleDidEnterRegionNotification:(NSNotification *)note {
+    Restaurant *r = note.userInfo[@"restaurant"];
+    if (r == _restaurant) {
+        _reserveATableButton.hidden = NO;
+    }
+}
+
+- (void)handleDidExitRegionNotification:(NSNotification *)note {
+    Restaurant *r = note.userInfo[@"restaurant"];
+    if (r == _restaurant) {
+        _reserveATableButton.hidden = YES;
+    }
 }
 
 - (IBAction)reserveATable:(id)sender {

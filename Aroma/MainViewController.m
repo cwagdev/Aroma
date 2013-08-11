@@ -66,8 +66,10 @@
 
 - (void)updateTitle:(UIScrollView *)scrollView {
     NSInteger currentResaurantIndex = floor(scrollView.contentOffset.x / self.view.frame.size.width);
-    Restaurant *currentRestaurant = [_restaurants objectAtIndex:currentResaurantIndex];
-    self.navigationItem.title = currentRestaurant.name;
+    if (currentResaurantIndex >= 0 || _restaurants.count > currentResaurantIndex) {
+        Restaurant *currentRestaurant = [_restaurants objectAtIndex:currentResaurantIndex];
+        self.navigationItem.title = currentRestaurant.name;
+    }
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {

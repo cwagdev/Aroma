@@ -15,12 +15,19 @@
 
 #import "BeaconMonitoringService.h"
 
-@implementation AppDelegate {
-    CLLocationManager *_locationManager;
-}
+@implementation AppDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
-    NSLog(@"Determined state for region: %@", region);
+    if ([region isKindOfClass:[CLBeaconRegion class]]) {
+        CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
+        Restaurant *restaurant = [[RestaurantDetailService sharedService] restaurantWithUUID:beaconRegion.proximityUUID];
+        if (restaurant) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DidDetermineRegionState"
+                                                                object:self
+                                                              userInfo:@{@"restaurant": restaurant,
+                                                                         @"state": @(state)}];
+        }
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
@@ -34,6 +41,7 @@
             notification.alertBody = [NSString stringWithFormat:@"Smell that? Looks like you're near %@!", restaurant.name];
             notification.soundName = @"Default";
             [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DidEnterRegion" object:self userInfo:@{@"restaurant": restaurant}];
         }
     }
 }
@@ -47,6 +55,7 @@
             UILocalNotification *notification = [[UILocalNotification alloc] init];
             notification.alertBody = [NSString stringWithFormat:@"We hope you enjoyed the smells and more of %@. See you next time!", restaurant.name];
             [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DidExitRegion" object:self userInfo:@{@"restaurant": restaurant}];
         }
     }
 }
