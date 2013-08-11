@@ -27,6 +27,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     _restaurants = [[RestaurantDetailService sharedService] restaurants];
+    self.navigationItem.title = [_restaurants[0] valueForKey:@"name"];
     [self setupScrollView];    
 }
 

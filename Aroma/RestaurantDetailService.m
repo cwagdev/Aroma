@@ -29,25 +29,25 @@
     }
 
     // load up some static data, ideally this would come from a web service
-    NSUUID *raysUUID = [[NSUUID alloc] initWithUUIDString:@"EC6F3659-A8B9-4434-904C-A76F788DAC43"];
-    Restaurant *rays = [[Restaurant alloc] initWithUUID:raysUUID name:@"Ray's Wraps"];
-    rays.motdHeader = @"Gangsta Wrappers";
-    rays.motdBody = @"Welcome to Ray's Wraps! Here you will find the most gangsta wrappers dropping flavor bombs on your tongue.";
-    rays.image = [UIImage imageNamed:@"Wrap"];
+    NSUUID *cupcakesUUID = [[NSUUID alloc] initWithUUIDString:@"EC6F3659-A8B9-4434-904C-A76F788DAC43"];
+    Restaurant *cupcakes = [[Restaurant alloc] initWithUUID:cupcakesUUID name:@"Core Cupcakes"];
+    cupcakes.motdHeader = @"Straight to the Core";
+    cupcakes.motdBody = @"Our cupcakes our foundational. We consider them to be a core part of everyone's diet. Forget about being in shape... Round is a shape too.";
+    cupcakes.image = [UIImage imageNamed:@"Cupcakes"];
     
-    NSUUID *jamiesUUID = [[NSUUID alloc] initWithUUIDString:@"7B377E4A-1641-4765-95E9-174CD05B6C79"];
-    Restaurant *jamies = [[Restaurant alloc] initWithUUID:jamiesUUID name:@"Jamie's Jambalaya"];
-    jamies.motdHeader = @"Everything Under The Sun";
-    jamies.motdBody = @"And as hot as the sun, our jambalya will kick you so hard in the tastebuds you won't know what hit you.";
-    jamies.image = [UIImage imageNamed:@"Jambalya"];
+    NSUUID *saladsUUID = [[NSUUID alloc] initWithUUIDString:@"7B377E4A-1641-4765-95E9-174CD05B6C79"];
+    Restaurant *salads = [[Restaurant alloc] initWithUUID:saladsUUID name:@"@synthesize salads"];
+    salads.motdHeader = @"Nothing Automatic About Them";
+    salads.motdBody = @"You might be used to things being done automatically for you lately. But here at @synthesize salads we aren't lazy and pick our ingredients from the best farming @properties in town.";
+    salads.image = [UIImage imageNamed:@"Salad"];
     
-    NSUUID *chrisUUID = [[NSUUID alloc] initWithUUIDString:@"2B144D35-5BA6-4010-B276-FC4D4845B292"];
-    Restaurant *chris = [[Restaurant alloc] initWithUUID:chrisUUID name:@"Chris's Calzones"];
-    chris.motdHeader = @"Pockets of Heaven";
-    chris.motdBody = @"These calzones are so packed full of fresh and delicious ingredients, you will swear they came strait from the calzone gods.";
-    chris.image = [UIImage imageNamed:@"Calzone"];
+    NSUUID *wrapsUUID = [[NSUUID alloc] initWithUUIDString:@"2B144D35-5BA6-4010-B276-FC4D4845B292"];
+    Restaurant *wraps = [[Restaurant alloc] initWithUUID:wrapsUUID name:@"Weak Wraps"];
+    wraps.motdHeader = @"Retain Cycle Guaranteed";
+    wraps.motdBody = @"These wraps are so good, you will wish you had used a weak reference. We guarantee you will be stuck here forever.";
+    wraps.image = [UIImage imageNamed:@"Wrap"];
     
-    _restaurants = @[rays, chris, jamies];
+    _restaurants = @[cupcakes, wraps, salads];
     
     return _restaurants;
 }
