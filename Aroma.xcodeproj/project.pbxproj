@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		83BFBFDF17AF8B5B00741CCC /* BeaconMonitoringService.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BFBFDE17AF8B5B00741CCC /* BeaconMonitoringService.m */; };
 		83BFBFE317B0BAFE00741CCC /* MultipeerConnectivityService.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BFBFE217B0BAFE00741CCC /* MultipeerConnectivityService.m */; };
 		83BFBFED17B0DF1D00741CCC /* ReserveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BFBFEC17B0DF1D00741CCC /* ReserveTableViewController.m */; };
 		83CD7B7F17ADD49000C5E680 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83CD7B7E17ADD49000C5E680 /* Foundation.framework */; };
@@ -40,8 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		83BFBFDD17AF8B5B00741CCC /* BeaconMonitoringService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconMonitoringService.h; path = Aroma/iBeacon/BeaconMonitoringService.h; sourceTree = SOURCE_ROOT; };
-		83BFBFDE17AF8B5B00741CCC /* BeaconMonitoringService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconMonitoringService.m; path = Aroma/iBeacon/BeaconMonitoringService.m; sourceTree = SOURCE_ROOT; };
 		83BFBFE117B0BAFE00741CCC /* MultipeerConnectivityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipeerConnectivityService.h; sourceTree = "<group>"; };
 		83BFBFE217B0BAFE00741CCC /* MultipeerConnectivityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipeerConnectivityService.m; sourceTree = "<group>"; };
 		83BFBFEB17B0DF1D00741CCC /* ReserveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReserveTableViewController.h; sourceTree = "<group>"; };
@@ -100,8 +97,6 @@
 		83BFBFDC17AF84BB00741CCC /* iBeacon */ = {
 			isa = PBXGroup;
 			children = (
-				83BFBFDD17AF8B5B00741CCC /* BeaconMonitoringService.h */,
-				83BFBFDE17AF8B5B00741CCC /* BeaconMonitoringService.m */,
 			);
 			path = iBeacon;
 			sourceTree = "<group>";
@@ -303,7 +298,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83BFBFDF17AF8B5B00741CCC /* BeaconMonitoringService.m in Sources */,
 				83CD7BBB17ADE57E00C5E680 /* RestaurantDetailService.m in Sources */,
 				83CD7BB817ADE07600C5E680 /* RestaurantDetailViewController.m in Sources */,
 				83BFBFED17B0DF1D00741CCC /* ReserveTableViewController.m in Sources */,
