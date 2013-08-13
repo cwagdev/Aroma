@@ -18,9 +18,7 @@
 
 @end
 
-@implementation AppDelegate {
-    CLLocationManager *_locationManager;
-}
+@implementation AppDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
     if ([region isKindOfClass:[CLBeaconRegion class]]) {
