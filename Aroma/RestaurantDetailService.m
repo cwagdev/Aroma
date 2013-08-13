@@ -47,7 +47,13 @@
     wraps.motdBody = @"These wraps are so good, you will wish you had used a weak reference. We guarantee you will be stuck here forever.";
     wraps.image = [UIImage imageNamed:@"Wrap"];
     
-    _restaurants = @[cupcakes, wraps, salads];
+    NSUUID *bitesUUID = [[NSUUID alloc] initWithUUIDString:@"A456AF8C-CD6C-4AA8-9AD5-4C8D9C1939D3"];
+    Restaurant *bites = [[Restaurant alloc] initWithUUID:bitesUUID name:@"Bitmask Bites"];
+    bites.motdHeader = @"0001 | 1000 = 1001";
+    bites.motdBody = @"That's how many you should eat, no more, no less.";
+    bites.image = [UIImage imageNamed:@"Bites"];
+    
+    _restaurants = @[cupcakes, wraps, salads, bites];
     
     return _restaurants;
 }
